@@ -214,6 +214,7 @@ span {
 }
 .hero__media {
     flex-grow: 1;
+    position:relative;
 }
 .hero__images {
     display: flex;
@@ -224,14 +225,15 @@ span {
     z-index:1;
 }
 .hero__bgc-blu {
+    z-index: -1;
     position: absolute;
+    top: 122px;
+    left: 203px;
     width: 340px;
     height: 340px;
-    
     border-radius: 50%;
     background-color: #4dbb9a;
     filter: blur(137px);
-    top:122px;
     
 }
 .hero__img {
@@ -524,12 +526,22 @@ span {
     line-height: 1.4;
     color: #152427;
 }
-.media-block__ratio::after {
-    content: "";
-    display: block;
-    width: 40px;
+
+.percent {
+    position: relative;
+    margin-top: 3px;
+    width: 100%;
     height: 2px;
-    background: #83A17D;
+    background: #eaeaea;
+    border-radius: 10px;
+}
+.percent::before {
+    position: absolute;
+    content: '';
+    display: inline-block;
+    width: 40%;
+    height: inherit;
+    background: #83a17d;
     border-radius: 10px;
 }
 .media-block__loading{
@@ -542,13 +554,18 @@ span {
     color: #152427;
     justify-content: flex-end;
 }
-.media-block__dot {
-    margin-top: 6px;
-    content: "";
+.about-media-block__circle-decor {
+    width: 11px;
+    height: 11px;
+    padding: 3px;
+    border-radius: 50%;
+    background-color: #eaeaea;
+}
+.about-media-block__circle {
     width: 5px;
     height: 5px;
-    background: #143c3c;
     border-radius: 50%;
+    background-color: #143c3c;
 }
 .media-block__group-avatar{
     margin-top: 5px;
@@ -589,7 +606,7 @@ span {
     position:relative;
 }
 .section-heading__process::after {
-    left: 395px;
+    left: 419px;
     position: absolute;
     width: 66px;
     height: 2px;
@@ -653,7 +670,7 @@ span {
     text-decoration: underline;
     visibility: hidden;
 }
-.progress__text {
+.process__text {
     font-weight: 500;
     font-size: 1.8rem;
     line-height: 1.56;
@@ -663,10 +680,14 @@ span {
 }
 .process__desc-img {
     display: none;
+    transition: 0.5s;
 }  
-.process__item:hover .process__desc-img {
+.process__item:first-child:hover .process__desc-img {
     display: block;
 } 
+.process__item:first-child:hover .process__text {
+    display: none;
+}
 /* Features */
 .features {
     margin-top: 148px;
@@ -689,7 +710,7 @@ span {
     height: 2px;
     background: #83A17D;
     top: 81px;
-    left: 350px;
+    left: 381px;
 }
 .features__browse {
     font-family: var(--font-heading);
